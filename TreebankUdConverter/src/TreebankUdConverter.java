@@ -2157,6 +2157,7 @@ public class TreebankUdConverter
 			String wordIndex = Integer.toString(node.getWordNumber());
 			String form = node.getNodeData().get("form");
 			String lemma = node.getLemma();
+			String tuebaLemma = node.getTuebaLemma();
 			String upostag = node.getPos();
 			String xpostag = node.getNodeData().get("pos");
 			String feats = "";
@@ -2359,7 +2360,15 @@ public class TreebankUdConverter
 			String misc = "_";
 			
 			if (!topoField.isEmpty())
+			{
 				misc = "TopoField=" + topoField;
+				
+				// remove PTKVZ prefixes from lemmas in LK
+				if (lemma.contains("#") && topoField.endsWith("LK"))
+				{
+					lemma = lemma.replaceAll(".*#", "");
+				}
+			}
 			
 			if (discourse)
 			{
@@ -2375,6 +2384,14 @@ public class TreebankUdConverter
 					misc = "Morph=" + morph;
 				else
 					misc = "Morph=" + morph + "|" + misc;
+			}
+			
+			if (tuebaLemma != null && !tuebaLemma.isEmpty())
+			{
+				if (misc.equals("_"))
+					misc = "Lemma=" + tuebaLemma;
+				else
+					misc = "Lemma=" + tuebaLemma + "|" + misc;
 			}
 			
 			if (!namedEntity.isEmpty())
@@ -2425,7 +2442,7 @@ public class TreebankUdConverter
 				
 			columns.add(wordIndex);
 			columns.add(form);
-			columns.add(lemma);
+			columns.add(lemma.replace("#", ""));
 			columns.add(upostag);
 			columns.add(xpostag);
 			columns.add(feats);

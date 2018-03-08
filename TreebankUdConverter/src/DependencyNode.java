@@ -22,6 +22,7 @@ public class DependencyNode implements Serializable
 	private String pos = "";
 	private int wordNumber = 0;
 	private String lemma = "";
+	private String tuebaLemma = "";
 	boolean apprArt = false;
 	private String apprArtForm = "";
 	private String pronType = "";
@@ -125,6 +126,7 @@ public class DependencyNode implements Serializable
 		}
 
 	    String lemma = nodeData.get("lemma");
+	    this.tuebaLemma = lemma;
 	    String pos = nodeData.get("pos");
 	    String morph = nodeData.get("morph");
 	    String form = nodeData.get("form");
@@ -355,6 +357,13 @@ public class DependencyNode implements Serializable
 	    }
 	    else if (lemma == null)
 	    {
+	    	// lowercase because these entirely PTKVZ
+	    	// (I edited the three remaining cases by hand to provide a lemma)
+	    	lemma = nodeData.get("form").toLowerCase();
+	    }
+	    
+	    if (pos.equals("TRUNC"))
+	    {
 	    	lemma = nodeData.get("form");
 	    }
 	    
@@ -451,6 +460,11 @@ public class DependencyNode implements Serializable
 	public String getLemma() 
 	{
 		return lemma;
+	}
+	
+	public String getTuebaLemma() 
+	{
+		return tuebaLemma;
 	}
 
 	public TreeWord getWord() 
