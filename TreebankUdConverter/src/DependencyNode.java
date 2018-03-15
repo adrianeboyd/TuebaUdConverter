@@ -126,7 +126,9 @@ public class DependencyNode implements Serializable
 		}
 
 	    String lemma = nodeData.get("lemma");
-	    this.tuebaLemma = lemma;
+	    if (lemma != null) {
+	    	this.tuebaLemma = lemma;
+	    }
 	    String pos = nodeData.get("pos");
 	    String morph = nodeData.get("morph");
 	    String form = nodeData.get("form");
