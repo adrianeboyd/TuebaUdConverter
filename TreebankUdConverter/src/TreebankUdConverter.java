@@ -2137,8 +2137,9 @@ public class TreebankUdConverter
 		String firstRootNum = "";
 		boolean openDoubleQuote = false;
 		boolean allPunctuation = true;
+		int root = 0;
 		
-		//Check for all punctuation sentence
+		//Check for all punctuation sentence and find root
 		for (int i=0; i<sentence.size(); i++)
 		{
 			DependencyNode node = sentence.get(i);
@@ -2147,6 +2148,12 @@ public class TreebankUdConverter
 			{
 				allPunctuation = false;
 				break;
+			}
+			
+			String rel = node.getRel();
+			if (rel != null && rel.equals("root"))
+			{
+				root = node.getWordNumber();
 			}
 		}
 		
@@ -2438,6 +2445,12 @@ public class TreebankUdConverter
 					depRel = "punct";
 					head = "1";
 				}
+			}
+			
+			// hack to attach any stranded punctuation to the root
+			if (head != null && depRel != null && head.equals("0") && depRel.equals("punct"))
+			{
+				head = Integer.toString(root);
 			}
 				
 			columns.add(wordIndex);
