@@ -228,7 +228,7 @@ public class StructureTransformer
 				}
 				else if (isMatch(deps.get(i), currentTemplate.get(1)) && newDependencies.get(i).equals("REPLACEME")) 
 				{
-					newDependencies.set(i, "flat:foreign");
+					newDependencies.set(i, "flat");
 				}
 			}
 		}
@@ -252,7 +252,7 @@ public class StructureTransformer
 					} 
 					else 
 					{
-						newDependencies.set(i, "flat:foreign");
+						newDependencies.set(i, "flat");
 					}
 				}
 			}
