@@ -216,15 +216,8 @@ public class DependencyNode implements Serializable
 					}
 	    		}
 	    	}
-	    	if (morph.equals("s"))
-			{
-				morphCase = "Sing";
-			}
-	    	else if (morph.equals("p"))
-			{
-				morphCase = "Plur";
-			}
-	    	else if (morph.equals("n"))
+	    	
+	    	if (morph.equals("n"))
 			{
 				morphCase = "Nom";
 			}
