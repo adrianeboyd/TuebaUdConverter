@@ -2458,7 +2458,15 @@ public class TreebankUdConverter
 			columns.add(lemma.replace("#", ""));
 			columns.add(upostag);
 			columns.add(xpostag);
-			columns.add(feats);
+			// hack to remove morphological features from prepositions
+			if (upostag != null && upostag.equals("ADP"))
+			{
+				columns.add("_");
+			}
+			else
+			{
+				columns.add(feats);
+			}
 			columns.add(head);
 			columns.add(depRel);
 			columns.add(deps);
