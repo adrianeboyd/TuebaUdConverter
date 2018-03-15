@@ -2178,11 +2178,11 @@ public class TreebankUdConverter
   			{
   				upostag = "VERB";
   			}
-  			else if (lemma.contains("%"))
+  			else if (tuebaLemma.contains("%"))
 			{
   				if (xpostag.equals("TRUNC"))
   				{
-  					String truncPos = lemma.substring(lemma.length()-2, lemma.length());
+  					String truncPos = tuebaLemma.substring(tuebaLemma.length()-2, tuebaLemma.length());
   					if (truncPos.equals("%n"))
   					{
   						upostag = "NOUN";
