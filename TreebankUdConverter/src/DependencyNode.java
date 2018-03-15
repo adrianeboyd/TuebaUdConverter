@@ -139,26 +139,30 @@ public class DependencyNode implements Serializable
 	    
 	    this.pos = pos;
 	    
+	    if (pos != null && pos.startsWith("V"))
+	    {
+	    	if (pos.matches("V[AMV]FIN") || pos.equals("V[AV]IMP"))
+	    	{
+	    		verbForm = "Fin";
+	    	}
+	    	else if (pos.matches("V[AMV]INF") || pos.equals("VVIZU"))
+	    	{
+	    		verbForm = "Inf";
+	    	}
+	    	else if (pos.endsWith("PP"))
+	    	{
+	    		verbForm = "Part";
+	    	}
+	    	if (pos.endsWith("IMP"))
+	    	{
+	    		mood = "Imp";
+	    	}
+	    }
+	    
 	    if (morph != null)
 	    {
 	    	if (pos.startsWith("V"))
 	    	{
-	    		if (pos.equals("VVFIN") || pos.equals("VMFIN")  || pos.equals("VAFIN") || pos.equals("VVIMP") || pos.equals("VAIMP"))
-	    		{
-	    			verbForm = "Fin";
-	    		}
-	    		else if (pos.equals("VVINF") || pos.equals("VVIZU")  || pos.equals("VAINF") || pos.equals("VMINF"))
-	    		{
-	    			verbForm = "Inf";
-	    		}
-	    		else if (pos.endsWith("PPP"))
-	    		{
-	    			verbForm = "Part";
-	    		}
-	    		if (pos.endsWith("IMP"))
-	    		{
-	    			mood = "Imp";
-	    		}
 	    		if (morph.length() == 1)
 	    		{
 	    			if (morph.equals("s"))
