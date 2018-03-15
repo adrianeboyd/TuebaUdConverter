@@ -1766,7 +1766,7 @@ public class Transformations
 		//[MOD*,R-SIMPX,]:acl:relcl
 		currentTemplate.add(templateAllModRSimpx);
 		
-		currentNewRelations.add("acl:relcl");
+		currentNewRelations.add("acl");
 		
 		autoProcessedSingleTemplates.add(new TransformationPair(new ArrayList<RelationTemplate>(currentTemplate), new ArrayList<String>(currentNewRelations)));
 		
@@ -1826,7 +1826,7 @@ public class Transformations
 		//[,,PTKNEG]:neg
 		currentTemplate.add(templatePtkNeg);
 				
-		currentNewRelations.add("advmod:neg");
+		currentNewRelations.add("advmod");
 				
 		autoProcessedSingleTemplates.add(new TransformationPair(new ArrayList<RelationTemplate>(currentTemplate), new ArrayList<String>(currentNewRelations)));
 				
@@ -1836,7 +1836,7 @@ public class Transformations
 		//NEG_DET:det:neg
 		currentTemplate.add(templateNEG_DET);
 										
-		currentNewRelations.add("det:neg");
+		currentNewRelations.add("det");
 										
 		autoProcessedSingleTemplates.add(new TransformationPair(new ArrayList<RelationTemplate>(currentTemplate), new ArrayList<String>(currentNewRelations)));
 										
@@ -1846,7 +1846,7 @@ public class Transformations
 		//NEG_ADV:advmod:neg
 		currentTemplate.add(templateNEG_ADV);
 										
-		currentNewRelations.add("advmod:neg");
+		currentNewRelations.add("advmod");
 										
 		autoProcessedSingleTemplates.add(new TransformationPair(new ArrayList<RelationTemplate>(currentTemplate), new ArrayList<String>(currentNewRelations)));
 										
@@ -1856,7 +1856,7 @@ public class Transformations
 		//[,ADVX,ADV_NEG]:advmod:neg
 		currentTemplate.add(templateAdvXNeg);
 		
-		currentNewRelations.add("advmod:neg");
+		currentNewRelations.add("advmod");
 		
 		autoProcessedSingleTemplates.add(new TransformationPair(new ArrayList<RelationTemplate>(currentTemplate), new ArrayList<String>(currentNewRelations)));
 		
