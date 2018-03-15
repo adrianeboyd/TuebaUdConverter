@@ -274,6 +274,22 @@ public class DependencyNode implements Serializable
 		    		gender = "Fem";
 				}
 	    	}
+	    	
+	    	if (morph.length() >= 4)
+	    	{
+	    		if (morph.substring(3, 4).equals("1"))
+	    		{
+	    			person = "1";
+	    		}
+	    		else if (morph.substring(3, 4).equals("2"))
+	    		{
+	    			person = "2";
+	    		}
+	    		else if (morph.substring(3, 4).equals("3"))
+	    		{
+	    			person = "3";
+	    		}
+	    	}
 	    }
 	    
 	    if (pos != null && pos.equals("ART"))
