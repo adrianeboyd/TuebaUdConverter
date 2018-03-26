@@ -2147,7 +2147,6 @@ public class TreebankUdConverter
 			if (upostag != null && !(upostag.equals("PUNCT")))
 			{
 				allPunctuation = false;
-				break;
 			}
 			
 			String rel = node.getRel();
