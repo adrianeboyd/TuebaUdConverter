@@ -143,7 +143,7 @@ public class DependencyNode implements Serializable
 	    
 	    if (pos != null && pos.startsWith("V"))
 	    {
-	    	if (pos.matches("V[AMV]FIN") || pos.equals("V[AV]IMP"))
+	    	if (pos.matches("V[AMV]FIN") || pos.matches("V[AV]IMP"))
 	    	{
 	    		verbForm = "Fin";
 	    	}
