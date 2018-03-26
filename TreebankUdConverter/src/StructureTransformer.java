@@ -357,7 +357,7 @@ public class StructureTransformer
 		{
 			if (isMatch(deps.get(i), currentTemplate.get(0)) && newDependencies.get(i).equals("REPLACEME")) 
 			{
-				newDependencies.set(i, "flat:foreign");
+				newDependencies.set(i, "flat");
 			}
 		}
 		
@@ -369,7 +369,7 @@ public class StructureTransformer
 		{
 			if (isMatch(deps.get(i), currentTemplate.get(0)) && newDependencies.get(i).equals("REPLACEME")) 
 			{
-				newDependencies.set(i, "flat:foreign");
+				newDependencies.set(i, "flat");
 			}
 		}
 		
